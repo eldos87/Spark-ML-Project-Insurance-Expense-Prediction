@@ -1,0 +1,47 @@
+config:
+  params: config/params.yaml
+  schema_prediction: config/schema_prediction.json
+  schema_training: config/schema_training.json
+
+data_download:
+  training_file_path: data/training_batch_files
+  prediction_file_path: data/prediction_batch_files
+
+data_source:
+  Training_Batch_Files: Training_Batch_Files
+  Prediction_Batch_Files: Prediction_Batch_Files
+
+artifacts:
+  training_data:
+    good_file_path: artifacts/training_data/Training_Raw_files_validated/Good_raw
+    bad_file_path: artifacts/training_data/Training_Raw_files_validated/Bad_raw
+    archive_bad_file_path: artifacts/training_data/TrainingArchiveBadData
+    training_file_from_db: artifacts/training_data/Training_FileFromDB
+    master_csv: master.csv
+    pipeline_path: artifacts/pipeline/pipeline_model
+
+  model:
+    model_path: artifacts/model
+
+  prediction_data:
+    good_file_path: artifacts/prediction_data/Prediction_Raw_files_validated/Good_raw
+    bad_file_path: artifacts/prediction_data/Prediction_Raw_files_validated/Bad_raw
+    archive_bad_file_path: artifacts/prediction_data/PredictionArchiveBadData
+    prediction_file_from_db: artifacts/prediction_data/Prediction_FileFromDB
+    master_csv: master.csv
+    prediction_output_file_path: artifacts/Prediction_Output_DIR
+    prediction_file_name: Predictions.csv
+
+kafka:
+  topic_name: insurance-premium
+  kafka_bootstrap_server: localhost:9092
+
+dataset:
+  unwanted_column: region
+  target_columns: expenses
+
+database_detail:
+  training_database_name: insurance_project_training
+  prediction_database_name: insurance_project_prediction
+  dataset_training_collection_name: insurance_project_training_dataset
+  dataset_prediction_collection_name: insurance_project_prediction_dataset
